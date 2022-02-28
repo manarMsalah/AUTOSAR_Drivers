@@ -549,7 +549,7 @@ void Port_GetVersionInfo( Std_VersionInfoType* versioninfo )
 * Return value: None
 * Description: Function to configure the required registers for digital pin mode.
 ************************************************************************************/
-void Port_SetDigitalFunction(volatile uint32 *PortBase_Ptr, uint8 Pin,  uint32 ControlNum)
+static void Port_SetDigitalFunction(volatile uint32 *PortBase_Ptr, uint8 Pin,  uint32 ControlNum)
 {
   /* Clear the corresponding bit in the GPIOAMSEL register to disable analog functionality on this pin */
   CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)PortBase_Ptr + PORT_ANALOG_MODE_SEL_REG_OFFSET) , Port_PortChannels[Pin].Pin_num);
